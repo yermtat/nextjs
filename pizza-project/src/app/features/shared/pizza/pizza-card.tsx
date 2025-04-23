@@ -2,15 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
-// interface PizzaProps {
-//   id: number;
-//   category: string;
-//   name: string;
-//   price: number;
-//   image: string;
-//   description: string;
-// }
+import { MinusIcon, PlusIcon, Trash2 } from "lucide-react";
+import useCartStore from "@/store/cart-store";
+import CartItem from "../sidebar/item-cart";
 
 export default function PizzaCard({
   id,
@@ -22,6 +16,26 @@ export default function PizzaCard({
 }: Pizza) {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState(28);
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleOrder = () => {
+    console.log(quantity);
+    const newOrder: CartItem = {
+      pizza: { id, category, name, price, image, description },
+      quantity: quantity,
+    };
+    addToCart(newOrder);
+  };
 
   const sizes = [22, 28, 33];
 
@@ -69,18 +83,25 @@ export default function PizzaCard({
         </span>
         <div className="flex items-center space-x-2">
           <button
-            onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
-            className="p-1 rounded-full bg-gray-700 text-white"
-          ></button>
+            onClick={handleDecrement}
+            className="p-1 rounded-full bg-gray-700 text-white w-8 h-8"
+          >
+            -
+          </button>
           <span className="text-lg font-semibold">{quantity}</span>
           <button
-            onClick={() => setQuantity((prev) => prev + 1)}
-            className="p-1 rounded-full bg-orange-500 text-white"
-          ></button>
+            onClick={handleIncrement}
+            className="p-1 rounded-full bg-orange-500 text-white w-8 h-8"
+          >
+            +
+          </button>
         </div>
       </div>
 
-      <button className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-6 py-3 rounded-full font-semibold w-full">
+      <button
+        className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-6 py-3 rounded-full font-semibold w-full"
+        onClick={handleOrder}
+      >
         Order Now
       </button>
     </div>

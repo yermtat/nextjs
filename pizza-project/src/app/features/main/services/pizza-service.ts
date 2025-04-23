@@ -1,12 +1,3 @@
-// export interface Pizza {
-//     id: number
-//     category: string
-//     name: string
-//     price: number
-//     image: string
-//     description: string
-//   }
-
 export async function getPizzas(): Promise<Pizza[]> {
   try {
     const response = await fetch(`${process.env.API_HOST}/api/pizzas`);

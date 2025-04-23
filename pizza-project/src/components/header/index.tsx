@@ -43,17 +43,6 @@ const Header = () => {
           <button className="bg-gradient-to-r from-orange-300 to-orange-600 text-white px-4 py-2 rounded-full">
             <span className="mr-10 ml-10">Log in</span>
           </button>
-          {/* <button className="w-10 h-10 bg-gradient-to-r from-orange-300 to-orange-600 text-white flex items-center justify-center rounded-full">
-            🛒
-          </button> */}
-          {/* <SidebarProvider
-            style={{
-              width: "20rem",
-            }}
-            defaultOpen={false}
-          >
-          <sidebar
-          </SidebarProvider>{" "} */}
 
           <Sidebar />
         </div>

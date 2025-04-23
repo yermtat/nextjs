@@ -57,7 +57,13 @@ export function Sidebar() {
               </div>
             </div>
           ) : (
-            cartItems.map((item) => <CartItem key={item.pizza.id} {...item} />)
+            cartItems.map((item) => (
+              <CartItem
+                key={item.pizza.id}
+                pizza={item.pizza}
+                quantity={item.quantity}
+              />
+            ))
           )}
         </div>
         {cartItems.length > 0 && (

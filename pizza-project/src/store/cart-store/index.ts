@@ -25,7 +25,9 @@ const useCartStore = create<CartStore>((set) => ({
         );
         updatedCart[existingItemIndex].quantity = newItem.quantity;
       } else {
-        updatedCart.push(Object.assign({}, newItem, { quantity: 1 }));
+        updatedCart.push(
+          Object.assign({}, newItem, { quantity: newItem.quantity })
+        );
       }
 
       return { cart: updatedCart };

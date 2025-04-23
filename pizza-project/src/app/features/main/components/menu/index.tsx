@@ -18,9 +18,6 @@ export default function Menu() {
           </div>
         </div>
       </div>
-      {/* <Suspense fallback={<PizzaListSkeleton />}>
-      <PizzaList />
-    </Suspense> */}
       <PizzaLoader />
     </div>
   );
