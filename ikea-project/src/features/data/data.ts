@@ -1,0 +1,42 @@
+export const items = [
+  {
+    name: "fridhult",
+    price: 299,
+    imagePath: "/assets/fridhult.jpg",
+    summary: "Sleeper sofa, Skiftebo yellow",
+    category: "sofa",
+    color: "yellow",
+  },
+  {
+    name: "morabo",
+    price: 699,
+    imagePath: "/assets/morabo.jpg",
+    summary: "Sofa, Gunnared dark gray/wood",
+    category: "sofa",
+    color: "gray",
+  },
+  {
+    name: "uppland",
+    price: 849,
+    imagePath: "/assets/uppland.jpg",
+    summary: "Sofa, Blekinge white",
+    category: "sofa",
+    color: "white",
+  },
+  {
+    name: "poang",
+    price: 199,
+    imagePath: "/assets/poang.jpg",
+    summary: "Armchair, birch veneer/Gunnared light green",
+    category: "armchair",
+    color: "green",
+  },
+  {
+    name: "adde",
+    price: 12.5,
+    imagePath: "/assets/adde.jpg",
+    summary: "Chair, white",
+    category: "chair",
+    color: "white",
+  },
+];
