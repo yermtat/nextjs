@@ -7,7 +7,9 @@ export default function Catalog() {
       <div className="container mx-auto px-4">
         <div className="w-full">
           <div className="flex justify-center">
-            <h1 className="m-5 text-5xl">Catalog</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-10 mt-10">
+              Catalog
+            </h1>
           </div>
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <FilterButton name="Show all" defaultActive={true} />

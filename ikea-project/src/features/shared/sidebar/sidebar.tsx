@@ -11,6 +11,7 @@ import {
 import useCartStore from "@/store/";
 import { ShoppingCart } from "lucide-react";
 import CartItem from "./item-cart";
+import Link from "next/link";
 
 export function Sidebar() {
   const { cart } = useCartStore();
@@ -72,7 +73,9 @@ export function Sidebar() {
               <span>Subtotal</span>
               <span>${totalPrice.toFixed(2)}</span>
             </div>
-            <Button className="w-full mt-4">Checkout</Button>
+            <Link href="/checkout">
+              <Button className="w-full mt-4">Checkout</Button>
+            </Link>
           </div>
         )}
       </SheetContent>

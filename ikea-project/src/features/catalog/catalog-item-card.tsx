@@ -1,4 +1,5 @@
 // components/ProductCard.tsx
+import useCartStore from "@/store";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +11,15 @@ export default function ProductCard({
   category,
   color,
 }: Product) {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleOrder = () => {
+    const newOrder: CartItem = {
+      item: { name, price, imagePath, summary, category, color },
+      quantity: 1,
+    };
+    addToCart(newOrder);
+  };
   return (
     <div className="border rounded-xl shadow-sm bg-white flex flex-col overflow-hidden hover:shadow-md transition-shadow">
       <div className="relative w-full h-48">
@@ -20,10 +30,13 @@ export default function ProductCard({
         <p className="text-sm text-gray-500">{price} $</p>
         <div className="mt-auto flex gap-2">
           <button className="flex-1 border border-gray-300 text-sm px-3 py-1.5 rounded-md hover:bg-gray-100 transition">
-            More
+            <Link href={`product/${name}`}>More</Link>
           </button>
-          <Link href={`product/${name}`}>details</Link>
-          <button className="flex-1 bg-gray-800 text-white text-sm px-3 py-1.5 rounded-md hover:bg-gray-700 transition">
+
+          <button
+            className="flex-1 bg-gray-800 text-white text-sm px-3 py-1.5 rounded-md hover:bg-gray-700 transition0"
+            onClick={handleOrder}
+          >
             Add to Cart
           </button>
         </div>

@@ -35,9 +35,7 @@ const useCartStore = create<CartStore>((set) => ({
 
   removeFromCard: (name) =>
     set((state) => {
-      const updatedCart = state.cart.slice();
-
-      updatedCart.filter((item) => item.item.name != name);
+      const updatedCart = state.cart.filter((item) => item.item.name != name);
 
       return { cart: updatedCart };
     }),

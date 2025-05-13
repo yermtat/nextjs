@@ -30,7 +30,6 @@ export default function ProductSlider({ products }: ProductProps) {
       <h2 className="text-2xl font-bold mb-8">Popular</h2>
 
       <div className="relative w-full max-w-6xl px-4">
-        {/* Slider */}
         <div ref={sliderRef} className="keen-slider">
           {products.map((product, index) => (
             <div key={index} className="keen-slider__slide">
@@ -39,7 +38,6 @@ export default function ProductSlider({ products }: ProductProps) {
           ))}
         </div>
 
-        {/* Left arrow */}
         <button
           onClick={() => instanceRef.current?.prev()}
           className="absolute top-1/2 -left-4 -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100 z-10"
@@ -47,7 +45,6 @@ export default function ProductSlider({ products }: ProductProps) {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Right arrow */}
         <button
           onClick={() => instanceRef.current?.next()}
           className="absolute top-1/2 -right-4 -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100 z-10"
